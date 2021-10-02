@@ -20,6 +20,13 @@ class AdminController extends Controller
         return view('Admin.dashboard');
 
     }
+
+    public function addItems()
+    {
+        return view('Admin.add_items');
+
+    }
+    
     public function profile(Request $request)
     {
       $users = DB::table('users')

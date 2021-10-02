@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Client\UserController;
+use App\Http\Controllers\Admin\IndoorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,8 +33,13 @@ Route::group(['middleware' => 'admin'], function() {
 Route::get('/profile', [AdminController::class, 'profile'])->name('profile');
 Route::get('/create_account', [AdminController::class, 'registration'])->name('create_account');
 Route::post('/register.post', [AdminController::class, 'postRegistration'])->name('register.post');
-Route::get('/users.page', [App\Http\Controllers\Admin\AdminController::class, 'users'])->name('users');
-Route::delete('user/destroy/{id}',[App\Http\Controllers\Admin\AdminController::class, 'deleteUser'])->name('user.destroy');
+Route::get('/users.page', [AdminController::class, 'users'])->name('users');
+Route::delete('user/destroy/{id}',[AdminController::class, 'deleteUser'])->name('user.destroy');
+Route::get('add_items', [AdminController::class, 'addItems'])->name('add_items');
+
+//Indoor items
+Route::get('/indoor', [App\Http\Controllers\Admin\IndoorController::class, 'index'])->name('get_indoor');
+Route::post('add_indoor', [IndoorController::class, 'addIndoor'])->name('add_indoor');
 
 });
 

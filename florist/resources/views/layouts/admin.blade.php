@@ -51,6 +51,9 @@
                                 </ul>
                      </li>
                      <li class="nav-item">
+                        <a class="nav-link navi-h" href="{{route('add_items')}}">Add Items</a>
+                     </li>
+                     <li class="nav-item">
                             <a class= "nav-link navi-h" href="{{ route('users') }}">Users</a>
                         </li>
                         
