@@ -16,7 +16,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
 </head>
 <body>
@@ -43,8 +43,8 @@
                            
                                 <a data-toggle="dropdown" href="#" id="navbardrop" class="nav-link dropdown-toggle">Products</a>
                                 <ul class="dropdown-menu" style="border: none;">
-                                    <li ><a class="dropdown-item navi-h" href="#">Indoor</a></li>
-                                    <li ><a class="dropdown-item navi-h" href="#">Outdoor</a></li>
+                                    <li ><a class="dropdown-item navi-h" href="{{route('get_indoor')}}">Indoor</a></li>
+                                    <li ><a class="dropdown-item navi-h" href="{{route('get_outdoor')}}">Outdoor</a></li>
                                     <li ><a class="dropdown-item navi-h" href="#">Accessories</a></li>
                                     <div class="dropdown-divider"></div>
                                     <div class="dropdown-header">Others</div>
@@ -165,6 +165,11 @@
     
  }
    </style>
+   <script type="text/javascript">
+    $(document).ready(function() {
+    $('#dataTable').DataTable();
+} );
+</script>
    
 </body>
 <footer>

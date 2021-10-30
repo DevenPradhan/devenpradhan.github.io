@@ -40,8 +40,15 @@ Route::get('add_items', [AdminController::class, 'addItems'])->name('add_items')
 //Indoor items
 Route::get('/indoor', [App\Http\Controllers\Admin\IndoorController::class, 'index'])->name('get_indoor');
 Route::post('add_indoor', [IndoorController::class, 'addIndoor'])->name('add_indoor');
+Route::get('indoor/view', [IndoorController::class, 'view']);
+Route::post('update_indoor', [IndoorController::class, 'updateIndoor'])->name('update_indoor');
+Route::delete('indoor.destroy/{id}', [IndoorController::class, 'destroy_indoor'])->name('indoor.destroy');
+
+//Outdoor items
+Route::get('/outdoor', [App\Http\Controllers\Admin\OutdoorController::class, 'index'])->name('get_outdoor');
 
 });
+
 
 // Client Side
 Route::group(['middleware' => 'auth'], function() {

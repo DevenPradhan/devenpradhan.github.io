@@ -6,10 +6,10 @@
 		<div class="card-body">
 			<ul class="nav flex-column">
 				<li class="nav-item"><a class=" nav-link" href="{{Route('get_indoor')}}">Indoor</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Outdoor</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{Route('get_outdoor')}}">Outdoor</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Accessories</a></li>
 
-				<a class="nav-link">hjk</a>
+				
 			</ul>
 
 		</div>
