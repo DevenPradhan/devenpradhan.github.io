@@ -1,5 +1,4 @@
-<script src="{{ asset('js/app.js') }}" defer></script>
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -12,6 +11,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="popper.min.js"></script>
@@ -45,13 +47,13 @@
                                 <ul class="dropdown-menu" style="border: none;">
                                     <li ><a class="dropdown-item navi-h" href="{{route('get_indoor')}}">Indoor</a></li>
                                     <li ><a class="dropdown-item navi-h" href="{{route('get_outdoor')}}">Outdoor</a></li>
-                                    <li ><a class="dropdown-item navi-h" href="#">Accessories</a></li>
+                                    <li ><a class="dropdown-item navi-h" href="{{route('accessories')}}">Accessories</a></li>
                                     <div class="dropdown-divider"></div>
                                     <div class="dropdown-header">Others</div>
                                 </ul>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link navi-h" href="{{route('add_items')}}">Add Items</a>
+                        <a class="nav-link navi-h" href="{{route('get.requests')}}">Item Requests</a>
                      </li>
                      <li class="nav-item">
                             <a class= "nav-link navi-h" href="{{ route('users') }}">Users</a>
@@ -108,21 +110,21 @@
     </div>
 
    <style type="text/css">
-       body{
-        background: white;
-        min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-        
-       }
-       footer{
-        margin-top: auto;
-        bottom: 0px;
-        width: 100%;
-       }
-       
-       .cnav{
-        background-color: #E9F7EB;
+           body{
+            background: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+
+        }
+        footer{
+            margin-top: auto;
+            bottom: 0px;
+            width: 100%;
+        }
+
+        .cnav{
+            background-color: #E9F7EB;
         }
         .caro{
             background-color: #E9F7EB;
@@ -133,38 +135,51 @@
             max-width: 100%;
             height: 400px;
         }
-        
+
         .navi-h:hover {
             background-color:  #E9F7EB;
         }
         .navbar-nav .dropdown-menu {
-    position: static;
-    float: none;
-}
-        
-       .dropdown-custom {
-        background-color: whitesmoke;
-        
+            position: static;
+            float: none;
+        }
+
+        .dropdown-custom {
+            background-color: whitesmoke;
 
 
-       }
-       .rcorners1 {
-  border-radius: 10px;
-   
-  width: 66.67px;
-  height: 50px; 
-}
-    .def_size {
-        width: 200px;
+
+        }
+        .rcorners1 {
+            border-radius: 10px;
+
+            width: 66.67px;
+            height: 50px; 
+        }
+        .def_size {
+            width: 200px;
+            height: auto;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            margin-top: 0; // remove the gap so it doesn't close
+            
+        }
+
+        .thumbnail{
+        width: 80px;
+        }
+
+        .thumbnail:hover{
+        width: 100px;
         height: auto;
-    }
+        transition: width .5s;
 
-       .dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0; // remove the gap so it doesn't close
-    
- }
+        }
+       
    </style>
+   
    <script type="text/javascript">
     $(document).ready(function() {
     $('#dataTable').DataTable();
@@ -172,17 +187,5 @@
 </script>
    
 </body>
-<footer>
-    <nav class="navbar navbar navbar-light cnav">
-  <div class="row ml-auto">
-   
-    <p>Contact No - 17847844 <br>Dfdad
-    </p>
-      
-      </div>
 
-      
-
-</nav>
-   </footer>
 </html>

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container-fluid py-2">
-<div class="row cnav">
+<!-- <div class="row cnav">
 	<div class="col">
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner caro">
@@ -27,8 +27,7 @@
   </button>
 </div>
 </div>
-</div>
-</div>
+</div>> -->
 
 
 <div class="row pl-3">

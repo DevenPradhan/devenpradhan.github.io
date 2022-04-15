@@ -15,25 +15,32 @@ class UserController extends Controller
     public function index()
     {   
         $user = DB::table('users')
-        ->where('id', '=', auth()->id())
-        ->get();
+                ->where('id', auth()->id())
+                ->get();
+
         $data = tbl_client::where('user_id', auth()->id())->get();
 
         return view('Client.dashboard', compact('user', 'data'));
     }
+
+    
     public function profile()
     {
-        $users = DB::table('users')
-                // ->join('tbl_clients', 'users.id', '=', 'tbl_clients.id')
-                ->where('id', '=', auth()->id())
-                ->get();
-        $client = tbl_client::where('user_id', Auth::User()->id)->get();
+            $users = DB::table('users')
+                    // ->join('tbl_clients', 'users.id', '=', 'tbl_clients.id')
+                    ->where('id', '=', auth()->id())
+                    ->get();
 
-                return view('Client.profile', compact('users','client'));
+            $client = tbl_client::where('user_id', Auth::User()->id)->get();
+
+        return view('Client.profile', compact('users','client'));
     }
+
     public function full_profile()
     {   
+        
         $user = tbl_client::where('user_id', Auth::User()->id)->get();
+        
         return view('Client.edit', compact('user'));
     }
     
@@ -53,12 +60,6 @@ class UserController extends Controller
             ]);
 
         return redirect('/user.profile')->with('success','Data Edited Successfully!');
-    }
-
-    public function upload(Request $request)
-    {
-        return view('Client.upload');
-
     }
 
 

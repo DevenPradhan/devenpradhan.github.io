@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TblClients extends Migration
+class ItemsList extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class TblClients extends Migration
      */
     public function up()
     {
-         Schema::create('tbl_clients', function (Blueprint $table) {
+        Schema::create('items_list', function(Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->string('name');
-
-            $table->integer('cid_no')->unique();
-            $table->string('address');
-            $table->integer('contact_no');
+            $table->string('item name');
+            $table->string('item_category');
+            $table->string('client_id');
+            $table->bigInteger('quantity');
             $table->timestamps();
+
         });
     }
 
@@ -32,6 +31,6 @@ class TblClients extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_clients');
+        Schema::dropIfExists('items_list');
     }
 }

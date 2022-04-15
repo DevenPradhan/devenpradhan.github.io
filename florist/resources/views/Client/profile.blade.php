@@ -9,8 +9,10 @@
                   <div class="card-header"></div>
                   <div class="card-body">
                     @foreach($users as $user)
-                    <div class="row">
-                      <a class="btn btn-link" href="{{Route('edit_info')}}">Edit Information</a>
+                    <div class="row justify-content-center">
+                      <a class="col-md-3 nav-link" href="{{Route('edit_info')}}">EDIT INFORMATION</a>
+                    </div>
+                      <div class="row">
                 <label for="role" class="col-md-4 mr-2 col-form-label text-md-left">Name:</label>
                 <label for="role" class="col-md-4 mr-2 col-form-label text-md-left">{{$user->name}}</label>
               </div>

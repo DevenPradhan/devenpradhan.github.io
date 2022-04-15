@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\tbl_indoor;
+use Storage;
 
 class IndoorController extends Controller
 {
    public function index(){
-      $items = tbl_indoor::get();
+      $items = tbl_indoor::all();
 
     return view('Admin.indoor', compact('items'));
    }
@@ -44,9 +45,42 @@ class IndoorController extends Controller
         return redirect('/indoor')->withSuccess('Data Edited Successfully!'); 
     }
    public function destroy_indoor($id)
-    {
+    {   
+        $picture = tbl_indoor::where('id', $id)->value('picture');
+
         $section = new tbl_indoor;
         $section::where('id', $id)->delete();
+        
+                    Storage::delete('images/'.$picture);
+        
+        
         return redirect('/indoor')->withSuccess('Item has been deleted successfully');;
+    }
+
+    public function uploadPhoto(Request $request){
+
+         $validated = $request->validate([
+            'photo' => 'mimes:jpeg,png']);
+        
+            $product_id = $request->id;
+            $file       = $request->file('photo');
+            $name       = $request->name;
+            $extension  = $file->extension();
+        
+        if(!empty($request->name)){
+
+            $file_name = $name.'.'.$extension;
+
+        }else{
+            $file_name = $file->getClientOriginalName();
+        }
+        
+        Storage::putFileAs('images', $file, $file_name);
+
+        tbl_indoor::where('id', $product_id)->update([
+                'picture' => $file_name
+                 ]);
+
+        return back()->withSuccess('Picture Created successfully');
     }
 }

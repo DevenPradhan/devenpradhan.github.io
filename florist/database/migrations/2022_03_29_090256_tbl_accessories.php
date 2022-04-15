@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Indoors extends Migration
+class TblAccessories extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class Indoors extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_indoors', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('description');
-            $table->string('picture');
-            $table->timestamps();
+        Schema::create('tbl_accessories', function(Blueprint $table) {
+
+                $table->id();
+                $table->string('name');
+                $table->string('description');
+                $table->string('picture');
+                $table->timestamps();
         });
     }
 
@@ -29,6 +30,6 @@ class Indoors extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_indoors');
+        Schema::dropIfExists('tbl_accessories');
     }
 }

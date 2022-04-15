@@ -13,8 +13,8 @@
                           @csrf
                           <div class="form-group row">
                             <label for="role" class="col-md-4 mr-3 col-form-label text-md-right">Role</label>
-                            <select name="role" id="role" class="form-control w-25 custom-select">
-                                <option selected>...</option>
+                            <select name="role" id="role" class="form-control w-25 custom-select" required>
+                                <option value="" selected>...</option>
                                 <option value="admin">Admin</option>
                                 <option value="vendor">Vendor</option>
                             </select>
@@ -26,7 +26,7 @@
                           <div class="form-group row">
                               <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
                               <div class="col-md-6">
-                                  <input type="text" id="name" class="form-control" name="name" required />
+                                  <input type="text" id="name" class="form-control" name="name" required value="{{old('name')}}" />
                                   @if ($errors->has('name'))
                                       <span class="text-danger">{{ $errors->first('name') }}</span>
                                   @endif
@@ -36,7 +36,7 @@
                           <div class="form-group row">
                               <label for="email_address" class="col-md-4 col-form-label text-md-right">Email Address</label>
                               <div class="col-md-6">
-                                  <input type="text" id="email_address" class="form-control" name="email" required />
+                                  <input type="text" id="email_address" class="form-control" name="email" required value="{{old('email')}}" />
                                   @if ($errors->has('email'))
                                       <span class="text-danger">{{ $errors->first('email') }}</span>
                                   @endif

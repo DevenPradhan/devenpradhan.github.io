@@ -8,7 +8,7 @@
                 {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
   Launch static backdrop modal
 </button> --}}
-            <a style="width: 125px;" class="btn btn-secondary" href="{{route('upload')}}">Upload Items</a>
+            <a style="width: 125px;" class="btn btn-secondary" href="{{route('request.items')}}">Upload Items</a>
             </div>
             
                 <div class="card">

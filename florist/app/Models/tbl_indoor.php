@@ -12,5 +12,6 @@ class tbl_indoor extends Model
     protected $fillable = [
         'name',
         'description',
+        'picture'
     ];
 }

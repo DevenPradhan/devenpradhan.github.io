@@ -130,7 +130,7 @@
         <h4 class="modal-title">Add Indoor Plant</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
-      <form action="{{ route('add_indoor') }}" method="post">
+      <form action="{{ route('add_accessory') }}" method="post">
         {{csrf_field()}}
         <!-- Modal body -->
         <div class="modal-body">

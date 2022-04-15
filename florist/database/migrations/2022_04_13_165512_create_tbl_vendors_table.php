@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TblClients extends Migration
+class CreateTblVendorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class TblClients extends Migration
      */
     public function up()
     {
-         Schema::create('tbl_clients', function (Blueprint $table) {
+        Schema::create('tbl_vendors', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
             $table->string('name');
-
-            $table->integer('cid_no')->unique();
+            $table->integer('cid_no');
             $table->string('address');
             $table->integer('contact_no');
             $table->timestamps();
@@ -32,6 +30,6 @@ class TblClients extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_clients');
+        Schema::dropIfExists('tbl_vendors');
     }
 }

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class tbl_item extends Model
 {
     use HasFactory;
-    protected $table = 'tbl_items';
+    protected $table = 'items_list';
+    protected $fillable = ['id', 'item_id', 'item_category', 'client_id', 'quantity']; 
     
 }
